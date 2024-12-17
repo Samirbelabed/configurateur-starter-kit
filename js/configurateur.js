@@ -40,7 +40,7 @@ window.addEventListener("load", () => {
 
    
    
-    let optTx = document.getElementById('textColorOptions');
+   
 
 
 
@@ -76,7 +76,7 @@ window.addEventListener("load", () => {
             });
 
             TissC.classList.add("selectedColor");
-            optT.src = `url(${tissus.image})`;
+            optT.src = `${tissus.image}`;
 
 
 });
@@ -119,7 +119,7 @@ window.addEventListener("load", () => {
                 });
     
                 PochC.classList.add("selectedColor");
-                optP.src = `url(${poches.image})`;
+                optP.src = `${poches.image}`;
 
 
 
@@ -135,7 +135,8 @@ window.addEventListener("load", () => {
 
 
 
-
+    let optTx = document.getElementById('textColorOptions');
+    let CustTx = document.getElementById('customText');
 
 
     couleurText.forEach(textes => {
@@ -158,6 +159,7 @@ window.addEventListener("load", () => {
                 });
     
                 TexteC.classList.add("selectedColor");
+                CustTx.style.color = `${textes.code}`;
 
 
 
