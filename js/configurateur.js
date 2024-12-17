@@ -27,54 +27,158 @@ let textOption = true;
 const prixLettre = 1.80;
 
 window.addEventListener("load", () => {
-console.log("everything's ready !");
+    console.log("everything's ready !");
 
 
-let displayT = document.getElementById("displayTissu");
-    displayT.classList.add("TitreTexte");
+    let displayT = document.getElementById("displayTissu");
 
+    let displayP = document.getElementById("displayPoche");
 
+    let Tiss = document.getElementById("tissu");
+    let Poch = document.getElementById("optionPoche");
 
-optionsTissu.forEach(tissus => {
-    
-    
- 
 
    
+   
+    let optTx = document.getElementById('textColorOptions');
 
 
+
+
+
+
+
+
+    let optT = document.getElementById('optionTissuImage');
+
+
+
+    optionsTissu.forEach(tissus => {
+
+        
+
+        let TissC = document.createElement('div');
+        TissC.classList.add("ColorRound", "tissuRound");
+        TissC.style.backgroundColor = `${tissus.code}`;
+        Tiss.appendChild(TissC);
+
+        TissC.addEventListener('click', () => {
+
+          
+
+            document.querySelectorAll('.tissuRound').forEach((Ctissu) => {
+
+            Ctissu.classList.remove("selectedColor");
+
+            
+         
+            
+            });
+
+            TissC.classList.add("selectedColor");
+            optT.src = `url(${tissus.image})`;
+
+
+});
+
+
+     
+
+    
+    
+    
+    
+    
+    
     console.log(tissus);
 
-});
+    });
+
+    let optP = document.getElementById('optionPocheImage');
+
+    optionsPoche.forEach(poches => {
+
+
+        let PochC = document.createElement('div');
+        PochC.classList.add("ColorRound", "pocheRound");
+        PochC.style.backgroundColor = `${poches.code}`;
+        Poch.appendChild(PochC);
+
+        PochC.addEventListener('click', () => {
 
 
 
 
+            PochC.classList.add("selectedColor");
 
 
+            document.querySelectorAll('.pocheRound').forEach((Cpoche) => {
 
-
-let displayP = document.getElementById("displayPoche");
-displayP.classList.add("TitreTexte");
-
-
-optionsPoche.forEach(poches => {
+                Cpoche.classList.remove("selectedColor");
+                
+                });
     
+                PochC.classList.add("selectedColor");
+                optP.src = `url(${poches.image})`;
+
+
+
+
+        });
+
+
+
+
+        console.log(poches);
+
+    });
+
+
+
+
+
+
+    couleurText.forEach(textes => {
+     
+
+        let TexteC = document.createElement('div');
+        TexteC.classList.add("ColorRound", "texteRound");
+        TexteC.style.backgroundColor = `${textes.code}`;
+        optTx.appendChild(TexteC);
+
+        TexteC.addEventListener('click', () => {
+
+
+
+
+            document.querySelectorAll('.texteRound').forEach((Ctexte) => {
+
+                Ctexte.classList.remove("selectedColor");
+                
+                });
     
- 
-
-   
+                TexteC.classList.add("selectedColor");
 
 
-    console.log(poches);
+
+
+
+        });
+
+
+
+
+        console.log(textes);
+
+    });
+
+
+
+
+
+
+
+
+
 
 });
-
-
-
-
-
-
-
-
-})
